@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringaApplication<springa>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.springa.springa.SpringaApplication",
+            "projectName": "springa",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

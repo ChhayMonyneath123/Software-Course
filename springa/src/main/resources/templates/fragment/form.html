@@ -1,0 +1,58 @@
+<form
+  th:fragment="content"
+  th:action="${productForm.id != null} ? @{/update-product/{id}(id=${productForm.id})} : @{/save-product}"
+  method="post"
+  th:object="${productForm}"
+  enctype="multipart/form-data"
+>
+  <div class="mb-3">
+    <label for="productCode" class="form-label">Product Code</label>
+    <input type="text" class="form-control" id="productCode" th:field="*{code}"  />
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" th:field="*{name}" id="name"  />
+    <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" class="form-control" id="country" th:field="*{country}"  />
+    <div th:if="${#fields.hasErrors('country')}" class="text-danger" th:errors="*{country}">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" class="form-control" th:field="*{price}" id="price"  />
+    <div th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{price}">
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="cost" class="form-label">Cost</label>
+    <input type="number" class="form-control" th:field="*{cost}" id="cost"  />
+    <div th:if="${#fields.hasErrors('cost')}" class="text-danger" th:errors="*{cost}">
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input type="file" class="form-control" th:field="*{image}" />
+    <div th:if="${#fields.hasErrors('image')}" class="text-danger" th:errors="*{image}">
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" placeholder="Required description" th:field="*{description}" ></textarea>
+    <div class="invalid-feedback">Please enter a description.</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
